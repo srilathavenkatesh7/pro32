@@ -5,11 +5,15 @@ const Constraint=Matter.Constraint
 var engine,world;
 var box1,box2;
 var slingshot1,ground1;
+var score=0;
 
-
+function preload(){
+  backimg=loadImage("back.jpg");
+}
 
 function setup() {
   createCanvas(1000,800);
+  
   engine=Engine.create();
   world=engine.world;
 ground1=new Ground(870,750,180,10);
@@ -68,9 +72,10 @@ box47=new Box(840,305,60,60);
 box48=new Box(780,245,60,60);
 polygon1=new Polygon();
 slingshot1=new SlingShot(polygon1.body,{x:100,y:400});
+
 }
 function draw() {
-  background(0);  
+  background(backimg);  
   Engine.update(engine);
   ground1.display();
   ground2.display();
@@ -126,6 +131,57 @@ function draw() {
   box48.display();
   polygon1.display();
   slingshot1.display();
+  text("SCORE :"+score,750,40);
+  box1.score();
+  box2.score();
+  box3.score();
+  box4.score();
+  box5.score();
+  box6.score();
+  box7.score();
+  box8.score();
+  box9.score();
+  box11.score();
+  box12.score();
+  box13.score();
+  box14.score();
+  box15.score();
+  box16.score();
+  box17.score();
+  box18.score();
+  box19.score();
+  box20.score();
+  box21.score();
+  box22.score();
+  box23.score();
+  box24.score();
+  box25.score();
+  box26.score();
+  box27.score();
+  box28.score();
+  box29.score();
+  box30.score();
+  box31.score();
+  box32.score();
+  box33.score();
+  box34.score();
+  box35.score();
+  box36.score();
+  box37.score();
+  box38.score();
+  box39.score();
+  box40.score();
+  box41.score();
+  box42.score();
+  box43.score();
+  box44.score();
+  box45.score();
+  box46.score();
+  box47.score();
+  box48.score();
+  
+
+  
 }
 
 function mouseDragged(){
@@ -140,5 +196,20 @@ function mouseReleased(){
 function keyPressed(){
   if(keyCode===32){
     slingshot1.attach(polygon1.body);
+  }
+}
+
+
+async function backgroundimg(){
+  var response=await fetch ("http://worldtimeapi.org/api/timezone/Asia/Kolkata");
+  var responseJSON=await response.json();
+  var datetime=responseJSON.datetime;
+  var hour=datetime.slice(11,13);
+  if(hour>0600 && hour<1800){
+    image (backimg,240,400);
+    tint(255,230);
+  }else {
+    image (backimg,240,400);
+    tint(255,50);
   }
 }
