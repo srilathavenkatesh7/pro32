@@ -75,7 +75,12 @@ slingshot1=new SlingShot(polygon1.body,{x:100,y:400});
 
 }
 function draw() {
-  background(backimg);  
+  background(backimg); 
+  push ();
+  stroke (40)
+  fill ("green");
+  text("SCORE :"+score,750,40);
+  pop () 
   Engine.update(engine);
   ground1.display();
   ground2.display();
@@ -131,7 +136,7 @@ function draw() {
   box48.display();
   polygon1.display();
   slingshot1.display();
-  text("SCORE :"+score,750,40);
+ 
   box1.score();
   box2.score();
   box3.score();
@@ -181,7 +186,6 @@ function draw() {
   box48.score();
   
 
-  
 }
 
 function mouseDragged(){
